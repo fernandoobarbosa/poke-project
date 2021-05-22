@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
@@ -48,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  enterButton: {
+    marginLeft: 10,
+    marginRight: 10
+  },
   inputRoot: {
     color: 'inherit'
   },
@@ -67,17 +71,24 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function NavBar ({ pokemonRequest }) {
+  const [search, setSearch] = useState('')
   const history = useHistory()
 
   const classes = useStyles()
   // const [dados, setDados] = useState([])
 
-  function onBlurHandler (event) {
-    pokemonRequest(event.target.value)
+  // function onBlurHandler (event) {
+  //   pokemonRequest(event.target.value)
+  // }
+
+  function onChangeHandler (event) {
+    console.log(event.target.value)
+    setSearch(event.target.value)
   }
 
-  function onClickDetailsHandler () {
-    history.push('/details/' + localStorage.getItem('pokemon'))
+  function onClickButtonSearchHandler () {
+    pokemonRequest(search.toLowerCase())
+    // history.push('/details/' + localStorage.getItem('pokemon'))
   }
 
   function onClickHomeHandler () {
@@ -101,10 +112,6 @@ export default function NavBar ({ pokemonRequest }) {
             Poke Project
           </Typography>
 
-          <Button variant='contained' color='secondary' onClick={onClickDetailsHandler}>
-            Details
-          </Button>
-
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -116,11 +123,12 @@ export default function NavBar ({ pokemonRequest }) {
                 input: classes.inputInput
               }}
               inputProps={{ 'aria-label': 'search' }}
-              onBlur={(event) => {
-                onBlurHandler(event)
-              }}
+              onChange={onChangeHandler}
             />
           </div>
+          <Button variant='contained' color='secondary' onClick={onClickButtonSearchHandler} className={classes.enterButton}>
+            Go!
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

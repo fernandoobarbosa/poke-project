@@ -36,5 +36,5 @@ export default function MovesTable ({ moves, showTable }) {
       </div>
     )
   }
-  return <Alert severity='warning'>No records...</Alert>
+  return <Alert severity='warning'>No records, just search see all the pokemon moves!</Alert>
 }
