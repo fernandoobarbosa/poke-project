@@ -80,6 +80,10 @@ export default function NavBar ({ pokemonRequest }) {
     history.push('/details/' + localStorage.getItem('pokemon'))
   }
 
+  function onClickHomeHandler () {
+    history.push('/')
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position='static'>
@@ -89,10 +93,11 @@ export default function NavBar ({ pokemonRequest }) {
             className={classes.menuButton}
             color='inherit'
             aria-label='open drawer'
+            onClick={onClickHomeHandler}
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant='h6' noWrap>
+          <Typography className={classes.title} variant='h6' noWrap onClick={onClickHomeHandler}>
             Poke Project
           </Typography>
 

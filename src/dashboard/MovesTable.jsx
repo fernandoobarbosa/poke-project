@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { DataGrid, GridToolbar } from '@material-ui/data-grid'
+import { Alert } from '@material-ui/lab'
 
 const columns = [
   { field: 'id', headerName: '#', width: 70 },
@@ -32,5 +33,5 @@ export default function MovesTable ({ moves, showTable }) {
       </div>
     )
   }
-  return ('hey')
+  return <Alert severity='warning'>No records...</Alert>
 }

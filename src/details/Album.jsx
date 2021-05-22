@@ -76,14 +76,7 @@ export default function Album ({ images }) {
   return (
     <>
       <CssBaseline />
-      <AppBar position='relative'>
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant='h6' color='inherit' noWrap>
-            Album layout
-          </Typography>
-        </Toolbar>
-      </AppBar>
+
       <main>
         <Container className={classes.cardGrid} maxWidth='md'>
           {/* End hero unit */}

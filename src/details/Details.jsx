@@ -2,6 +2,7 @@ import * as React from 'react'
 import { useParams } from 'react-router-dom'
 import pokemonFormApi from '../services/pokemonFormApi'
 import Album from '../details/Album'
+import NavBar from '../common/NavBar'
 export default function Profile () {
   // const [user, setUser] = React.useState(null)
   const { handle } = useParams()
@@ -25,6 +26,9 @@ export default function Profile () {
   // console.log(response.data.moves)
 
   return (
-    <Album images={images} />
+    <div>
+      <NavBar />
+      <Album images={images} />
+    </div>
   )
 }

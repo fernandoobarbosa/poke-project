@@ -51,6 +51,7 @@ export default function DashBoard () {
         setShowTable(true)
       })
       .catch(function (error) {
+        setShowTable(false)
         // handle error
         console.log(error)
       })
