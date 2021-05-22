@@ -11,8 +11,10 @@ const columns = [
 ]
 
 export default function MovesTable ({ moves, showTable }) {
+  function onRowClickHandler (event) {
+    console.log(event)
+  }
   console.log(moves)
-
   if (showTable) {
     return (
       <div style={{ width: '70%', margin: 'auto' }}>
@@ -21,6 +23,7 @@ export default function MovesTable ({ moves, showTable }) {
           pageSize={8} autoHeight
           disableColumnSelector
           disableSelectionOnClick
+          onRowClick={onRowClickHandler}
           align='center'
           alignItems='center'
           justifyContent='center'

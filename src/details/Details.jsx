@@ -27,7 +27,7 @@ export default function Profile () {
 
   return (
     <div>
-      <NavBar />
+      <NavBar pokemonRequest={pokeSpritesRequest} />
       <Album images={images} />
     </div>
   )
