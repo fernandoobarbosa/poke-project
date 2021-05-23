@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import NavBar from '../common/NavBar'
+import Copyright from '../common/Copyright'
 import pokemonApi from '../services/pokemonApi'
 import MovesTable from './MovesTable'
+import Album from '../album/Album'
+import pokemonImages from '../services/pokemonImages'
 export default function DashBoard () {
-  const [showTable, setShowTable] = useState(false)
+  const [showContent, setShowContent] = useState(false)
   const [moves, setMoves] = useState([])
+  const [images, setImages] = useState({})
   // const [generation, setGeneration] = useState(0)
 
   function sortByKey (array, key) {
@@ -13,16 +17,19 @@ export default function DashBoard () {
       return ((x < y) ? -1 : ((x > y) ? 1 : 0))
     })
   }
+
   function pokemonRequest (pokemonName) {
+    pokemonAlbumRequest(pokemonName)
+
     let jsonMoves = []
 
     pokemonApi.get('/' + pokemonName)
       .then(function (response) {
-        localStorage.setItem('pokemon', pokemonName)
-        console.log(response)
+        // localStorage.setItem('pokemon', pokemonName)
+        // console.log(response)
         // handle success
         function iterate (item, index) {
-          console.log(item)
+          // console.log(item)
           const obj = {
             id: index + 1,
             name: item.move.name,
@@ -45,21 +52,38 @@ export default function DashBoard () {
           return a.levelLearned - b.levelLearned
         }
         )
-
-        console.log(jsonMoves)
+        // console.log(jsonMoves)
         setMoves(jsonMoves)
-        setShowTable(true)
+        setShowContent(true)
       })
       .catch(function (error) {
-        setShowTable(false)
+        errorHandler()
         // handle error
         console.log(error)
       })
   }
+
+  function pokemonAlbumRequest (pokemonName) {
+    pokemonImages.get('/' + pokemonName)
+      .then(function (response) {
+        console.log(response.data.sprites)
+        setImages(response.data.sprites)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  function errorHandler () {
+    setShowContent(false)
+  }
+
   return (
     <div> <NavBar pokemonRequest={pokemonRequest} />
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} />
-      <MovesTable moves={moves} showTable={showTable} />
+      <Album images={images} showAlbum={showContent} />
+      <MovesTable moves={moves} showTable={showContent} />
+      <Copyright />
     </div>
   )
 }

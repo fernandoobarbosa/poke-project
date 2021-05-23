@@ -5,16 +5,13 @@ import {
   Route
 } from 'react-router-dom'
 import DashBoard from '../src/dashboard/Dashboard'
-import Details from '../src/details/Details'
+
 export default function App () {
   return (
     <Router>
       <Switch>
         <Route exact path='/'>
           <DashBoard />
-        </Route>
-        <Route exact path='/details/:handle'>
-          <Details />
         </Route>
         <Route path='*'>
           <NotFound />

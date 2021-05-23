@@ -7,14 +7,14 @@ const columns = [
   { field: 'name', headerName: 'NAME', width: 300 },
   { field: 'levelLearned', headerName: 'LEVEL', width: 150 },
   { field: 'learnMethod', headerName: 'LEARN METHOD', width: 300 }
-  // { field: 'versionName', headerName: 'VERSION NAME', width: 200 }
+
 ]
 
 export default function MovesTable ({ moves, showTable }) {
   function onRowClickHandler (event) {
     console.log(event)
   }
-  console.log(moves)
+
   if (showTable) {
     return (
       <div style={{ width: '70%', margin: 'auto' }}>
@@ -36,5 +36,5 @@ export default function MovesTable ({ moves, showTable }) {
       </div>
     )
   }
-  return <Alert severity='warning'>No records, just search see all the pokemon moves!</Alert>
+  return <Alert severity='warning'>No records, just search to see all the pokemon information!</Alert>
 }
