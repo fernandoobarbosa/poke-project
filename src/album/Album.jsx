@@ -68,7 +68,7 @@ export default function Album ({ images, showAlbum }) {
             <Grid container spacing={4}>
               {filtered.map((card, index) => (
                 <Grid item key={index} xs={12} sm={6} md={4}>
-                  <Card className={classes.card}>
+                  <Card className={classes.card} elevation={7}>
                     <CardMedia
                       className={classes.cardMedia}
                       image={card.image}

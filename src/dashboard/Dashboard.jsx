@@ -18,9 +18,7 @@ export default function DashBoard () {
     })
   }
 
-  function pokemonRequest (pokemonName) {
-    pokemonAlbumRequest(pokemonName)
-
+  function pokemonMovesRequest (pokemonName) {
     let jsonMoves = []
 
     pokemonApi.get('/' + pokemonName)
@@ -62,7 +60,6 @@ export default function DashBoard () {
         console.log(error)
       })
   }
-
   function pokemonAlbumRequest (pokemonName) {
     pokemonImages.get('/' + pokemonName)
       .then(function (response) {
@@ -72,6 +69,11 @@ export default function DashBoard () {
       .catch(function (error) {
         console.log(error)
       })
+  }
+
+  function pokemonRequest (pokemonName) {
+    pokemonAlbumRequest(pokemonName)
+    pokemonMovesRequest(pokemonName)
   }
 
   function errorHandler () {
