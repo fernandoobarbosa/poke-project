@@ -1,3 +1,7 @@
+<h4 align="center"> 
+	🚧  React Select 🚀 Em construção...  🚧
+</h4>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
