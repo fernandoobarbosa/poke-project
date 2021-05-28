@@ -1,4 +1,4 @@
-<h1align="center"> 
+<h1 align="center"> 
 	🚧  Poke Project 🚀 Em construção...  🚧
 	online em : https://poke-project-v1.herokuapp.com
 </h1>
