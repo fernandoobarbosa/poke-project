@@ -1,7 +1,7 @@
-<h2 align="center"> 
+<h1align="center"> 
 	🚧  Poke Project 🚀 Em construção...  🚧
 	online em : https://poke-project-v1.herokuapp.com
-</h2>
+</h1>
 
 # Getting Started with Create React App
 
